@@ -3,22 +3,38 @@
 Plugin Name: DL Robots.txt
 Description: DL Robots.txt Позволяет редактировать содержимое вашего файла robots.txt и задавать оптимальные настройки для поисковых одним кликом мышки
 Plugin URI: http://vcard.dd-l.name/wp-plugins/
-Version: 1.0
+Version: 1.0.1
 Author: Dyadya Lesha (info@dd-l.name)
 Author URI: http://dd-l.name
 */
 
 
-// create custom plugin settings menu
-add_action('admin_menu', 'baw_create_menu');
+add_action( 'admin_menu', 'dl_robotstxt_menu_page' );
 
-function baw_create_menu() {
-
-	add_menu_page( 'dl-robots', 'DL Robots.txt', 'administrator', 'dl-robots-txt/options-page.php', '',  'dashicons-format-aside');
+function dl_robotstxt_menu_page(){ 
+    add_menu_page( 
+		'dl-robots',
+		'DL Robots.txt',
+		'administrator',
+		'dl-robotstxt/options-page.php',
+		'',
+		'dashicons-format-aside'
+		);
 
 	//call register settings function
 	add_action( 'admin_init', 'dl_robots_register_settings' );
 }
+
+
+// Добавляем допалнительную ссылку настроек на страницу всех плагинов
+function dl_robotstxt_settings_link($links) {
+  $settings_link = '<a href="admin.php?page=dl-robotstxt/options-page.php">Параметры</a>';
+  array_unshift($links, $settings_link);
+  return $links;
+}
+$plugin = plugin_basename(__FILE__);
+
+add_filter("plugin_action_links_$plugin", 'dl_robotstxt_settings_link' );
 
 
 // регистрируем настройки

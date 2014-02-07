@@ -27,7 +27,7 @@ function dl_robots_js_function( v ) {
 	<?php if(get_option('blog_public') == '0') echo '<h2 style="color: #E14D43">Поисковые системы не индексируют сайт</h2>'; ?>
 
 	<form method="post" action="options.php">
-		
+
 		<?php settings_fields( 'dl-robots-settings' ); ?>
 		
 		<div style="float: left; width: 35%;" >
