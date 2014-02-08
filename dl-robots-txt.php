@@ -3,7 +3,7 @@
 Plugin Name: DL Robots.txt
 Description: DL Robots.txt Позволяет редактировать содержимое вашего файла robots.txt и задавать оптимальные настройки для поисковых одним кликом мышки
 Plugin URI: http://vcard.dd-l.name/wp-plugins/
-Version: 1.1
+Version: 1.2
 Author: Dyadya Lesha (info@dd-l.name)
 Author URI: http://dd-l.name
 */
@@ -53,7 +53,7 @@ add_filter( 'robots_txt' , 'dl_robots_change' , 10 , 2);
 
 function dl_robots_change ( $source_text , $public ) {
 	if ( '1' == $public ) {
-		$source_text .= "\n###### DL Robots.txt #####\n" . get_option('dl_robots_option') . "\n";
+		$source_text .= "\n# DL Robots.txt \n" . get_option('dl_robots_option') . "\n";
 	}
 	return $source_text;
 }

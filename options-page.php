@@ -26,6 +26,23 @@ function dl_robots_js_function( v ) {
 
 	<?php if(get_option('blog_public') == '0') echo '<h2 style="color: #E14D43">Поисковые системы не индексируют сайт</h2>'; ?>
 
+
+	<?php if ( file_exists( ABSPATH . 'robots.txt' ) ) { ?>
+		<div style="color: #E14D43; font-weight:bold;">
+			<p>В директории вашего сайта находится реальный файл robots.txt! Это неправильная ситуация, т.к. robots.txt должен формироваться динамически с помощью WordPress.</p>
+			<p>Для нормальной работы этого плагина, вам нужно:</p>
+
+			<ol>
+				<li>скопировать настройки из реального файла в текстовое поле данного плагина</li>
+				<li>сохранить изменения в настройках плагина нажав соответствующую кнопку внизу этой страницы</li>
+				<li>потом удалить реальный файл</li>
+			</ol>
+		</div>
+	<?php } else { ?>
+		<h4 style="color: #27C544">Файл robots.txt формируется динамически с помощью WordPress</h4>
+	<?php } ?>
+
+
 	<form method="post" action="options.php">
 
 		<?php settings_fields( 'dl-robots-settings' ); ?>

@@ -4,7 +4,7 @@ Plugin URI: http://vcad.dd-l.name/wp-plugins/
 Tags: dl, robots, robots.txt, seo
 Requires at least: 3.2
 Tested up to: 3.8
-Stable tag: 1.1
+Stable tag: 1.2
 
 DL Robots.txt Позволяет редактировать содержимое вашего файла robots.txt
 
@@ -24,6 +24,9 @@ DL Robots.txt Позволяет редактировать содержимое
 6. Сохраняем изминения
 
 == Changelog ==
+
+= 1.2 =
+* Добавлено определение реальный файл robots.txt в корневой папке WP
 
 = 1.1 =
 * Исправление ошибок 
